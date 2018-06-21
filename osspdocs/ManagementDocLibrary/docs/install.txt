@@ -1,0 +1,38 @@
+
+#centos
+sudo yum -y install make gcc gcc-c++ ncurses-devel perl pcre-devel zlib zlib-devel
+sudo yum -y install openssl openssl-devel 
+sudo yum -y install libgd2-devel libpcre-devel libcurl-devel gd-devel libaio
+sudo yum -y install net-tools telnet tree lsof wget unzip zip portmap vim lvm2 rsync ntp httpd nfs-utils psmisc
+sudo yum install -y perl-Module-Install.noarch
+
+# without ssl
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-proxy --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+# with ssl
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-proxy --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-http_ssl_module --add-module=../cache-purge-2.3
+
+#ubuntu
+sudo apt-get update
+sudo apt-get install libpcre3 libpcre3-dev
+sudo apt-get install ruby zlib1g zlib1g.dev
+
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-proxy --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/bin/openssl --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-service-store --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/bin/openssl --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-service-www --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/bin/openssl --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-web-store --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/bin/openssl --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+./configure --user=root --group=root --prefix=/usr/local/lib/nginx/nginx-web-www --with-pcre --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/bin/openssl --add-module=../nginx-cache-purge-2.3 --without-http_fastcgi_module
+
+
+#MAC安装
+./configure --prefix=/Users/mattdamon/Application/nginx/nginx-proxy --conf-path=/Users/mattdamon/Application/nginx/nginx-proxy/conf/nginx.conf --with-pcre=/Users/mattdamon/Application/lib/pcre --with-http_stub_status_module --with-http_ssl_module  --with-http_gzip_static_module --add-module=/Users/mattdamon/Application/lib/ngx_cache_purge --with-cc-opt="-Wno-deprecated-declarations" --without-http_fastcgi_module
+
+./configure --prefix=/Users/mattdamon/Application/nginx/nginx-mall --conf-path=/Users/mattdamon/Application/nginx/nginx-mall/conf/nginx.conf --with-pcre=/Users/mattdamon/Application/lib/pcre --with-http_stub_status_module --with-http_ssl_module  --with-http_gzip_static_module --add-module=/Users/mattdamon/Application/lib/ngx_cache_purge --with-cc-opt="-Wno-deprecated-declarations" --without-http_fastcgi_module
+
+./configure --prefix=/Users/mattdamon/Application/nginx/nginx-console --conf-path=/Users/mattdamon/Application/nginx/nginx-console/conf/nginx.conf --with-pcre=/Users/mattdamon/Application/lib/pcre --with-http_stub_status_module --with-http_ssl_module  --with-http_gzip_static_module --add-module=/Users/mattdamon/Application/lib/ngx_cache_purge --with-cc-opt="-Wno-deprecated-declarations" --without-http_fastcgi_module
+
+./configure --prefix=/Users/mattdamon/Application/nginx/nginx-resource --conf-path=/Users/mattdamon/Application/nginx/nginx-resource/conf/nginx.conf --with-pcre=/Users/mattdamon/Application/lib/pcre --with-http_stub_status_module --with-http_ssl_module  --with-http_gzip_static_module --add-module=/Users/mattdamon/Application/lib/ngx_cache_purge --with-cc-opt="-Wno-deprecated-declarations" --without-http_fastcgi_module
